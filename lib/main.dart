@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travel_app_ui/homescreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,12 +11,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: homescreen(),
     );
   }
 }
@@ -34,8 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
+    return Scaffold(
         body: Stack(
           fit: StackFit.expand,
           children: [
@@ -68,10 +69,13 @@ class _MyHomePageState extends State<MyHomePage> {
                         color: Colors.transparent,
                       ),
                       child: Center(
-                        child: Icon(
-                          size: 40,
-                          Icons.keyboard_arrow_down_rounded,
-                          color: Colors.white,
+                        child: GestureDetector(
+                          onTap:() {Navigator.pop(context);},
+                          child: Icon(
+                            size: 40,
+                            Icons.keyboard_arrow_left_rounded,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     ),
@@ -113,7 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   padding: EdgeInsets.only(left: 25, right: 25, top: 37),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(26),
-                    color: Colors.white,
+                    color: Colors.white70,
                   ),
                   child: SingleChildScrollView(
                     controller: controller,
@@ -129,7 +133,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  "Rinjani Mountain",
+                                  "Paris",
                                   style: TextStyle(fontSize: 24),
                                 ),
                                 SizedBox(
@@ -146,7 +150,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       width: 4,
                                     ),
                                     Text(
-                                      "Lombok, Indonesia",
+                                      "Paris, France",
                                       style: TextStyle(color: Colors.blue),
                                     ),
                                   ],
@@ -219,27 +223,31 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: Row(
                             children: [
                               Image.asset(
-                                "assets/images/paris.jpg",
+                                "assets/images/paris1.jpg",
                                 width: 100.0,
                                 height: 100.0,
+                                fit: BoxFit.cover,
                               ),
                               SizedBox(width: 12),
                               Image.asset(
-                                "assets/images/paris.jpg",
+                                "assets/images/paris2.jpg",
                                 width: 100.0,
                                 height: 100.0,
+                                  fit: BoxFit.cover,
                               ),
                               SizedBox(width: 12),
                               Image.asset(
-                                "assets/images/paris.jpg",
+                                "assets/images/paris3.jpg",
                                 width: 100.0,
                                 height: 100.0,
+                                  fit: BoxFit.cover
                               ),
                               SizedBox(width: 12),
                               Image.asset(
-                                "assets/images/paris.jpg",
+                                "assets/images/paris4.jpg",
                                 width: 100.0,
                                 height: 100.0,
+                                  fit: BoxFit.cover
                               ),
                               SizedBox(width: 12),
                             ],
@@ -249,7 +257,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           height: 18,
                         ),
                         Text(
-                          "The mighty Rinjani mountain of Gunung Rinjani is a massive volcano which towers over the island of Lombok. A climb to the top is one of the most exhilarating experiences you can have in Indonesia. At 3,726 meters tall, Gunung Rinjani is the second highest mountain in Indonesia...",
+                          "Paris lives up to its hype: A city with unbelievable food and culture, plus stunning views everywhere you turn. With 18 arrondissements, it’s a lot to see in one trip, but each neighbourhood has a personality all its own. You can’t miss the iconic 7th, where art and history meet—there’s the Eiffel Tower, sure, but the impressive Musée du quai Branly is just a short walk away. It houses an amazing collection of indigenous art.",
                           style: TextStyle(fontSize: 14),
                         ),
 
@@ -277,7 +285,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ],
         ),
-      ),
+
     );
   }
 }
